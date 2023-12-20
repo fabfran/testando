@@ -188,9 +188,9 @@
 		}
 
 		h1 {
-			font-family: "Ubuntu";
-			font-size: 1.5rem;
-			font-weight: 500;
+			font-family: "Ubuntu Condensed";
+			font-size: 2rem;
+			font-weight: 700;
 			margin: 0 1rem 0 1rem;
 		}
 
@@ -200,9 +200,9 @@
 		}
 
 		h2 {
-			font-family: "Ubuntu";
+			font-family: "Ubuntu Condensed";
 			font-size: 1rem;
-			font-weight: 500;
+			font-weight: 600;
 			margin: 0 1rem 0 1rem;
 		}
 
@@ -232,27 +232,9 @@
 			font-size: 0.9rem;
 		}
 
-		.key {
-			display: inline-block;
-			background-color: ;
-			margin: 0.2rem 0 0 0rem;
-			font-weight: 800;
-			font-size: 0.9rem;
-			padding: 0rem;
-		}
-
-		.value {
-			display: inline;
-			background-color: ;
-			font-weight: 400;
-			font-size: 0.9rem;
-			padding: 0.2rem;
-			opacity: 0.9;
-		}
-
 		.price {
 			margin: 0 auto;
-			margin-top: 1rem;
+			margin-top: -1.5rem;
 			font-size: 1.5rem;
 			font-weight: 800;
 			color: yellowgreen;
@@ -274,7 +256,7 @@
 			border-bottom: 1px solid #000;
 		}
 
-		.contact > h2 {
+		.contact > h2, .delivery > h2 {
 			margin:0;
 			background-color: ;
 			text-transform: uppercase;
@@ -315,6 +297,31 @@
 		.email > a {
 			text-decoration: none;
 			color: royalblue;
+		}
+
+		.delivery {
+			margin: 0 auto;
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: lightgreen;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+		}
+
+		.delivery > p {
+			padding: 0;
+			margin: 0.5rem 0 0 0 ;
+		}
+
+		.bottom {
+			display: flex;
+			flex-flow: column;
+			min-height: 2rem;
+			background-color: #CCC;
+			color: white;
+			padding: 1rem;
+			text-align: center;
+			font-size: 0.8rem;
 		}
 
 	</style>
@@ -370,21 +377,20 @@
 				<p><b>Descrição:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 
+			<div class="col-s-12 delivery">
+				<h2>SOBRE A ENTREGA 🚴</h2>
+				<p>Em <b>Castro</b>, entregas em mãos, conforme combinado entre as partes. Para <b>outras cidades</b>, envio via Impresso Normal com Registro Módico. Custo conforme o CEP do cliente.</p>
+			</div>
 
+			<div>
+				<br>
+				<p>Se preferir, faça o pedido pela <a href="" target="blanc">Estante Virtual</a>.</p>
+				<br>
+			</div>
+
+			<div class="col-s-12 bottom">
+				Responsável: Fabiano Baniski
+			</div>
 		</div>
-
-		<div>
-			<br><br><br>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-
-
-
-	</div>
 </body>
 </html>

@@ -266,10 +266,18 @@
 		}
 
 		.contact {
-			display: flex;
-			flex-flow: column;
-			align-content: center;
-			justify-items: center;
+			margin: 0 auto;
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: #CECECE;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+		}
+
+		.contact > h2 {
+			margin:0;
+			background-color: ;
+			text-transform: uppercase;
 		}
 
 		.email {
@@ -282,14 +290,31 @@
 			border-radius: 0.3rem;
 		}
 		
-		.whatsapp {
-			margin: 1rem 0 0 1rem;
+		.whatsapp, .email {
+			margin: 1rem 0 0 0rem;
 			display: inline-block;
-			width: 8rem;
+			width: 7rem;
 			min-height: 1rem;
-			background-color: darkgreen;
+			background-color: whitesmoke;
 			padding: 0.5rem;
 			border-radius: 0.3rem;
+			border: 2px solid green;
+			text-align: center;
+		}
+
+		.email {
+			margin-left: 0.5rem;
+			border: 2px solid royalblue;
+		}
+
+		.whatsapp > a {
+			text-decoration: none;
+			color: green;
+		}
+
+		.email > a {
+			text-decoration: none;
+			color: royalblue;
 		}
 
 	</style>
@@ -325,6 +350,16 @@
 				R$ 10,00
 			</div>
 
+			<div class="col-s-12 contact">
+				<h2>ENTRE EM CONTATO 💬</h2>
+				<div class="col-s-5 whatsapp">
+					<a href="https://api.whatsapp.com/send?phone=5542998675065&text=Olá! Tenho interesse no livro The Web of Life - A new scientific understanding of living systems." target="blanc">Whatsapp</a>
+				</div>
+				<div class=" email">
+					<a href="mailto:fabianolivros@proton.me">Email</a>
+				</div>
+			</div>
+
 			<div class="details">
 				<p><b>Editora:</b> Companhia das Letras</p>
 				<p><b>Publicado em:</b> 1998</p>
@@ -335,16 +370,7 @@
 				<p><b>Descrição:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 
-			<hr>
 
-			<div class="contact">
-				<br>
-				<h2>CONTATO</h2>
-				<div class="col-s-3 email">Email</div>
-				<div class="col-s-5 whatsapp">Whatsapp</div>
-
-				<a href="https://api.whatsapp.com/send?phone=5542998675065&text=Olá! Tenho interesse no livro The Web of Life - A new scientific understanding of living systems." class="whatsapp" target="blanc">Whatsapp</a> | <a href="mailto:fabianolivros@proton.me" class="email">Email</a>
-			</div>
 		</div>
 
 		<div>

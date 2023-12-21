@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Treinando responsividade</title>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			font-family: "Ubuntu";
+		}
+
+		/* For mobile phones: */
+		[class*="col-"] {
+			width: 100%;
+		}
+
+		@media only screen and (min-width: 600px) {
+			/* For tablets: */
+			.col-s-1 {width: 8.33%;}
+			.col-s-2 {width: 16.66%;}
+			.col-s-3 {width: 25%;}
+			.col-s-4 {width: 33.33%;}
+			.col-s-5 {width: 41.66%;}
+			.col-s-6 {width: 50%;}
+			.col-s-7 {width: 58.33%;}
+			.col-s-8 {width: 66.66%;}
+			.col-s-9 {width: 75%;}
+			.col-s-10 {width: 83.33%;}
+			.col-s-11 {width: 91.66%;}
+			.col-s-12 {width: 100%;}
+		}
+
+		@media only screen and (min-width: 768px) {
+			/* For desktop: */
+			.col-1 {width: 8.33%;}
+			.col-2 {width: 16.66%;}
+			.col-3 {width: 25%;}
+			.col-4 {width: 33.33%;}
+			.col-5 {width: 41.66%;}
+			.col-6 {width: 50%;}
+			.col-7 {width: 58.33%;}
+			.col-8 {width: 66.66%;}
+			.col-9 {width: 75%;}
+			.col-10 {width: 83.33%;}
+			.col-11 {width: 91.66%;}
+			.col-12 {width: 100%;}
+
+			.book_container {
+				margin:0 auto;
+				max-width: 50%;
+				border: 0.5px solid #CCC;
+			}
+
+			.cover {
+				display: flex;
+				flex-flow: row;
+				margin: 0 auto;
+				margin-top: 1rem;
+				max-width: 100%;
+			}
+
+			.image {				
+				margin: 0 auto;
+				width: 60%;
+				box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+			}
+		}
+
+		[class*="col-"] {
+			float: left;
+		}
+
+		.row::after {
+			content: "";
+			clear: both;
+			display: table;
+		}
+
+		.container {
+			width: 100%;
+			height: 100vh;
+			background-color: #FFF;
+			overflow: auto;
+			display: flex;
+			flex-flow: column;
+		}
+
+		/* BARRA SUPERIOR */
+
+		    .top-bar {
+		        position: fixed;
+		        top: 0;
+		        width: 100%;
+		        z-index: 1000;
+		        margin-top:0;
+		        display: flex;
+		        justify-content: flex-start;
+		        background-color: #000;
+		        color: white;
+		        padding: 0.5rem;
+		    }
+
+		    #hamburger-menu {
+		        cursor: pointer;
+		        margin-top: 0.55rem;
+		        margin-left: 0.5rem;
+		    }
+
+		    #logo {
+		        font-size: 1.2rem;
+		        font-weight: 800;
+		        margin-left: 0.5rem;
+		        padding: 5px;
+		        background-color: black;
+		        border: 2px solid black;
+		        border-radius: 0rem;
+		    }
+
+		    #search-box input {
+		        padding: 5px;
+		        justify-self: flex-end;
+		    }
+
+		    .hidden {
+		        transform: translateX(-100%);
+		    }
+
+		/* MENU HAMBURGUER */
+
+		    #side-menu {
+		        position: fixed;
+		        top: 30px;
+		        left: 0;
+		        width: 70%;
+		        height: 100%;
+		        background-color: #f4f4f4;
+		        color: ; 
+		        margin-top: 1rem;
+		        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+		        transition: transform 0.3s ease-in;
+		        transform: translateX(-100%);
+		        overflow-y: auto; /* Adicionado para habilitar a rolagem */
+		    }
+
+		    #side-menu.show {
+		        transform: translateX(0);
+		    }
+
+		    #side-menu ul {
+		        list-style-type: none;
+		        padding: 0;
+		    }
+
+		    #side-menu ul li {
+		        padding: 10px 0;
+		        border-bottom: 1px solid #ddd;
+		    }
+
+		    .close-btn {
+		        font-size: 50px;
+		        cursor: pointer;
+		        position: absolute;
+		        top: 20px;
+		        right: 20px;
+		    }
+
+		    /* BARRA DE ROLAGEM */
+
+		        #side-menu::-webkit-scrollbar {
+		            width: 8px; /* Largura da barra de rolagem */
+		        }
+
+		        #side-menu::-webkit-scrollbar-track {
+		            background: #2c2c2c; /* Cor de fundo da trilha da barra de rolagem */
+		        }
+
+		        #side-menu::-webkit-scrollbar-thumb {
+		            background: #888; /* Cor da barra de rolagem */
+		            border-radius: 4px; /* Cantos arredondados na barra de rolagem */
+		        }
+
+		        #side-menu::-webkit-scrollbar-thumb:hover {
+		            background: #555; /* Cor da barra de rolagem ao passar o mouse */
+		        }
+
+		/* MEDIA QUERIES */
+
+			/* Smartphones (retrato) */
+			@media only screen and (max-width: 320px) {
+			}
+
+			/* Smartphones (paisagem) */
+			@media only screen and (min-width: 321px) and (max-width: 600px) {
+			}
+
+		.book_container {
+			display: flex;
+			flex-flow: column;
+			/*border: 3px solid red;*/
+		}
+
+		.title {
+			margin-top: 4rem;			
+			background-color: #FFF;
+			text-transform: uppercase;
+		}
+
+		h1 {
+			font-family: "Ubuntu Condensed";
+			font-size: 1.6rem;
+			font-weight: 700;
+			margin: 0 1rem 0 1rem;
+		}
+
+		.author {
+			margin-top: 0.2rem;			
+			background-color: #FFF;
+		}
+
+		h2 {
+			font-family: "Ubuntu Condensed";
+			font-size: 1rem;
+			font-weight: 800;
+			margin: 0 1rem 0 1rem;
+		}
+
+		.cover {
+			display: flex;
+			flex-flow: column;
+			margin: 1rem 0 0 0 ;
+		}
+
+		.image {
+			max-width: 80%;
+			margin: 0 auto;
+			box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+		}
+
+		.details {
+			margin-top: 1rem;
+			background-color: #FEFEFE;
+		}
+
+		p {
+			margin: 0 1rem 0 1rem;
+			line-height: 1.5;
+			overflow: auto;
+			background-color:;
+			text-align: justify;
+			font-size: 0.9rem;
+		}
+
+		.price {
+			margin: 0 auto;
+			margin-top: -1.5rem;
+			font-size: 1.5rem;
+			font-weight: 800;
+			color: yellowgreen;
+			background-color: black;
+			display: inline-block;
+			padding: 0.3rem;
+			text-align: center;
+			border-radius: 0.5rem;
+			transform: rotate(-7deg);
+			border: 3px solid yellowgreen;
+		}
+
+		.contact {
+			margin: 0 auto;
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: #CECECE;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+		}
+
+		.contact > h2, .delivery > h2 {
+			margin:0;
+			background-color: ;
+			text-transform: uppercase;
+		}
+
+		.email {
+			margin: 1rem 0 0 1rem;
+			display: inline-block;
+			width: 8rem;
+			min-height: 1rem;
+			background-color: darkgreen;
+			padding: 0.5rem;
+			border-radius: 0.3rem;
+		}
+		
+		.whatsapp, .email {
+			margin: 1rem 0 0 0rem;
+			display: inline-block;
+			width: 7rem;
+			min-height: 1rem;
+			background-color: whitesmoke;
+			padding: 0.5rem;
+			border-radius: 0.3rem;
+			border: 2px solid green;
+			text-align: center;
+		}
+
+		.email {
+			margin-left: 0.5rem;
+			border: 2px solid royalblue;
+		}
+
+		.whatsapp > a {
+			text-decoration: none;
+			color: green;
+		}
+
+		.email > a {
+			text-decoration: none;
+			color: royalblue;
+		}
+
+		.delivery {
+			margin: 0 auto;
+			margin-top: 1rem;
+			padding: 1rem;
+			background-color: #CECECE;
+			border-top: 1px solid #000;
+			border-bottom: 1px solid #000;
+		}
+
+		.delivery > p {
+			padding: 0;
+			margin: 0.5rem 0 0 0 ;
+		}
+
+		.bottom {
+			display: flex;
+			flex-flow: column;
+			min-height: 2rem;
+			background-color: #CCC;
+			color: white;
+			padding: 1rem;
+			text-align: center;
+			font-size: 0.8rem;
+		}
+
+		.modal {
+		  display: none;
+		  position: fixed;
+		  z-index: 1;
+		  padding-top: 100px;
+		  left: 0;
+		  top: 3rem;
+		  width: 100%;
+		  height: 100%;
+		  overflow: auto;
+		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0,0.9);
+		}
+
+		.modal-content {
+		  margin: auto;
+		  display: block;
+		  max-width: 100%;
+		  max-height: 100%;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		}
+
+		.close {
+		  position: absolute;
+		  top: 15px;
+		  right: 35px;
+		  color: #f1f1f1;
+		  font-size: 40px;
+		  font-weight: bold;
+		  cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<!-- BARRA SUPERIOR -->
+		<div class="top-bar">
+		    <div id="hamburger-menu">&#9776;</div>
+		    <div id="logo">SEBO IAPOENSE</div>
+		</div>
+
+		<div id="side-menu" class="hidden">
+		    <span class="close-btn">&times;</span>
+		    <br><br><br><br><br>
+		    <p>Site em construção. Em breve, atualizações e melhorias.</p>
+		</div>
+
+		<div class="col-12 book_container">
+			<div class="col-12 title">
+				<h1>12 segredos simples da felicidade no trabalho</h1>
+			</div>
+
+			<div class="col-12 author">
+				<h2>Glenn van Ereken</h2>
+			</div>
+
+			<div class="col-12 cover">
+				<img src="12-segredos-simples-da-felicidade-no-trabalho-glenn-van-ekeren-capa.jpg" class="image myImg">
+			</div>
+
+			<div id="myModal" class="modal">
+			  <span class="close">&times;</span>
+			  <img class="modal-content" id="img01">
+			</div>
+
+			<div class="price">
+				R$ 10,00
+			</div>
+
+			<div class="col-s-12 contact">
+				<h2>ENTRE EM CONTATO 💬</h2>
+				<div class="col-s-5 whatsapp">
+					<a href="https://api.whatsapp.com/send?phone=5542998675065&text=Olá! Tenho interesse no livro The Web of Life - A new scientific understanding of living systems." target="blanc">Whatsapp</a>
+				</div>
+				<div class=" email">
+					<a href="mailto:fabianolivros@proton.me?subject=Assunto&body=Sobre o livro '7 clássicos russos'">Email</a>
+				</div>
+			</div>
+
+			<div class="details">
+				<p><b>Editora:</b> Companhia das Letras</p>
+				<p><b>Publicado em:</b> 1998</p>
+				<p><b>Assunto:</b> Literatura Estrangeira</p>
+				<p><b>Peso:</b> 400g</p>
+				<p><b>ISBN:</b> 9788523214</p>
+				<p><b>Idioma:</b> Português</p>
+				<p><b>Descrição:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+			</div>
+
+			<div class="col-s-12 delivery">
+				<h2>SOBRE A ENTREGA 🚴</h2>
+				<p>Em <b>Castro</b>, entregas em mãos, conforme combinado entre as partes. Para <b>outras cidades</b>, envio via Impresso Normal com Registro Módico. Custo conforme o CEP do cliente.</p>
+			</div>
+
+			<div class="col-12 cover">
+				<img src="12-segredos-simples-da-felicidade-no-trabalho-glenn-van-ekeren-contracapa.jpg" class="image myImg">
+			</div>
+
+			<div>
+				<br>
+				<p>Se preferir, faça o pedido pela <a href="" target="blanc">Estante Virtual</a>.</p>
+				<br>
+			</div>
+
+			<div class="col-s-12 bottom">
+				Responsável: Fabiano Baniski
+			</div>
+		</div>
+	</div>
+
+	<script>
+	  var modal = document.getElementById("myModal");
+	  var imgs = document.getElementsByClassName("myImg");
+	  for (var i = 0; i < imgs.length; i++) {
+	    imgs[i].onclick = function(){
+	      modal.style.display = "block";
+	      modalImg.src = this.src;
+	    }
+	  }
+
+	  var modalImg = document.getElementById("img01");
+	  var span = document.getElementsByClassName("close")[0];
+	  span.onclick = function() { 
+	    modal.style.display = "none";
+	  }
+	  window.onkeydown = function(event) {
+	    if (event.key === 'Escape') {
+	      modal.style.display = "none";
+	    }
+	  }
+	</script>
+
+</body>
+</html>
